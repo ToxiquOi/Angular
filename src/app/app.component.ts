@@ -1,27 +1,22 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ListPostService} from "./services/ListPost.service";
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
-  postes = [
-    {
-      title: "First Post",
-      texte: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
+  public postes: any[];
 
-    },
-    {
-      title: "Second Post",
-      texte: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
-    },
-    {
-      title: "Third Post",
-      texte: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
-    }
-  ];
+  constructor(private listPostService: ListPostService){
 
+  }
+
+  ngOnInit(): void {
+    this.postes = this.listPostService.postes;
+  }
 
 }
