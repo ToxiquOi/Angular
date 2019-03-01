@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <li [ngClass]="{'list-group-item': true,
+                      'list-group-item-success': posteLike > 0,
+                      'list-group-item-danger': posteLike < 0}">
+        <div class="container">
+          <div class="row">
+            <h2 class="col-md-8" style="color: black">{{posteTitle}} </h2>
+            <label class="col-md-4" style="color: grey">Dernière update: {{lastUpdate | date: 'short'}}</label>
+          </div>
+
+          <p style="color: black">{{posteTexte}}</p>
+          <p style="color: black">like : {{posteLike}}</p>
+        </div>
+        <button class="btn btn-success" (click)="onLike('+'); ">Like</button>
+        <button class="btn btn-danger" (click)="onLike('-')">unlike</button>
+      </li>
+    </div>
+  </div>
+</div>
