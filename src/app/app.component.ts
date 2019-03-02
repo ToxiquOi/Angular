@@ -9,14 +9,13 @@ import {ListPostService} from "./services/ListPost.service";
 })
 export class AppComponent implements OnInit{
 
-  public postes: any[];
 
-  constructor(private listPostService: ListPostService){
+  constructor(){
 
   }
 
   ngOnInit(): void {
-    this.postes = this.listPostService.postes;
+
   }
 
 }

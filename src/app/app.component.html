@@ -1,18 +1,29 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>POST !!!!</h2>
-      <ul class="list-group">
-        <app-poste *ngFor="let poste of postes"
-                   [posteTitle]="poste.title"
-                   [posteTexte]="poste.texte"></app-poste>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" style="color: darkgoldenrod" href="#">Mon Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/post">Post</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/auth">Sign in</a>
+        </li>
       </ul>
     </div>
   </div>
+</nav>
 
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
 
 
 
-<router-outlet></router-outlet>

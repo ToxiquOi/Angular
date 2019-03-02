@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>POST !!!!</h2>
+      <ul class="list-group">
+        <app-poste *ngFor="let poste of postes"
+                   [posteTitle]="poste.title"
+                   [posteTexte]="poste.texte"></app-poste>
+      </ul>
+    </div>
+  </div>
+
+
+</div>
