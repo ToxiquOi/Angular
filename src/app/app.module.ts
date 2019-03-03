@@ -9,6 +9,7 @@ import { PostViewComponent } from './post-view/post-view.component';
 import { AuthComponent } from './auth/auth.component';
 import {AuthService} from './services/Auth.service';
 import {FormsModule} from '@angular/forms';
+import { PageNotExistComponent } from './page-not-exist/page-not-exist.component';
 
 
 
@@ -17,7 +18,8 @@ import {FormsModule} from '@angular/forms';
     AppComponent,
     PosteComponent,
     PostViewComponent,
-    AuthComponent
+    AuthComponent,
+    PageNotExistComponent
   ],
   imports: [
     BrowserModule,
