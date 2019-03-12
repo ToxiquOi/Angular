@@ -11,6 +11,8 @@ import {AuthService} from './services/Auth.service';
 import {FormsModule} from '@angular/forms';
 import { PageNotExistComponent } from './page-not-exist/page-not-exist.component';
 import { AddPostFormComponent } from './add-post-form/add-post-form.component';
+import { UserListComponent } from './user-list/user-list.component';
+import {UserService} from './services/User.service';
 
 
 
@@ -21,7 +23,8 @@ import { AddPostFormComponent } from './add-post-form/add-post-form.component';
     PostViewComponent,
     AuthComponent,
     PageNotExistComponent,
-    AddPostFormComponent
+    AddPostFormComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { AddPostFormComponent } from './add-post-form/add-post-form.component';
   ],
   providers: [
     ListPostService,
-    AuthService
+    AuthService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

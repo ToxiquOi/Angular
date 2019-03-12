@@ -1,3 +1,5 @@
+import {Subject} from 'rxjs';
+
 export class ListPostService {
 
   postes = [
@@ -22,6 +24,8 @@ export class ListPostService {
     }
   ];
 
+  postSubject = new Subject<any[]>();
+
   addPost(title: string, content: string){
     const poste = {
       id: 0,
@@ -35,6 +39,11 @@ export class ListPostService {
 
     console.log(poste);
     this.postes.push(poste);
+    this.emitPost();
+  }
+
+  emitPost(){
+    this.postSubject.next(this.postes.slice());
   }
 
 }
