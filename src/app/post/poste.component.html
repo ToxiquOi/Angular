@@ -15,7 +15,7 @@
         </div>
         <button class="btn btn-success" [disabled]="!getStatusAuth()" (click)="onLike('+'); ">Like</button>
         <button class="btn btn-danger" [disabled]="!getStatusAuth()" (click)="onLike('-')">dont like</button>
-        <label *ngIf="!isAuth" style="color: grey; margin-left: 10px">veuillez vous connecter pour intéragir !</label>
+        <label *ngIf="!getStatusAuth()" style="color: grey; margin-left: 10px">veuillez vous connecter pour intéragir !</label>
       </li>
     </div>
   </div>

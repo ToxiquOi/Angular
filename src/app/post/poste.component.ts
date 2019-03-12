@@ -26,8 +26,9 @@ export class PosteComponent implements OnInit {
     return this.isAuth;
   }
 
-  onLike(aritm: string): void{
+  onLike(aritm: string): void {
     (aritm == "+")? this.posteLike++ : this.posteLike--;
+    this.lastUpdate = new Date;
   }
 
 }
