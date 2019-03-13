@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {ListPostService} from '../services/ListPost.service';
+import {ListPostService} from '../../services/ListPost.service';
 import {Router} from '@angular/router';
-import {AuthService} from '../services/Auth.service';
+import {AuthService} from '../../services/Auth.service';
 
 @Component({
   selector: 'app-add-post-form',

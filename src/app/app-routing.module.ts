@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {PostViewComponent} from './post-view/post-view.component';
-import {AuthComponent} from './auth/auth.component';
-import {PageNotExistComponent} from './page-not-exist/page-not-exist.component';
-import {AddPostFormComponent} from './add-post-form/add-post-form.component';
-import {UserListComponent} from './user-list/user-list.component';
+import {PostViewComponent} from './component/post-view/post-view.component';
+import {AuthComponent} from './component/auth/auth.component';
+import {PageNotExistComponent} from './component/page-not-exist/page-not-exist.component';
+import {AddPostFormComponent} from './component/add-post-form/add-post-form.component';
+import {UserListComponent} from './component/user-list/user-list.component';
 
 const routes: Routes = [
   { path: 'post', component: PostViewComponent},
