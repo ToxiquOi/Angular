@@ -3,7 +3,7 @@ import {Subject} from 'rxjs';
 
 export class UserService{
   private users: UserModel[] = [
-    new UserModel('Will', 'Alexander', 'will@will.com', new Date(1997, 0, 15), ['coder', 'boire du café'])
+    new UserModel('Will', 'Alexander', 'will@will.com', ['coder', 'boire du café'])
   ];
   userSubject = new Subject<UserModel[]>()
 
@@ -12,6 +12,7 @@ export class UserService{
   }
 
   addUser(user: UserModel){
+    console.log(user)
     this.users.push(user);
     this.emitUsers();
   }
