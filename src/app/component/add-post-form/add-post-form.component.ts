@@ -11,7 +11,7 @@ import {AuthService} from '../../services/Auth.service';
 })
 export class AddPostFormComponent implements OnInit {
 
-  private postes
+  private postes;
   private isAuth: boolean;
 
   constructor(private listPost: ListPostService, private router: Router, private authService : AuthService) { }

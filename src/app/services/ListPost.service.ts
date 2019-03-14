@@ -1,28 +1,15 @@
 import {Subject} from 'rxjs';
+import {Injectable} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
+import {error} from "util";
 
+@Injectable()
 export class ListPostService {
 
-  postes = [
-    {
-      id: 0,
-      title: 'First Post',
-      texte: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
-        'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,'
+  postes = [];
 
-    },
-    {
-      id: 1,
-      title: 'Second Post',
-      texte: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
-        'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,'
-    },
-    {
-      id: 2,
-      title: 'Third Post',
-      texte: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
-        'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,'
-    }
-  ];
+  constructor(private httpClient: HttpClient) {
+  }
 
   postSubject = new Subject<any[]>();
 
@@ -44,6 +31,30 @@ export class ListPostService {
 
   emitPost(){
     this.postSubject.next(this.postes.slice());
+  }
+
+  savePostInDb(){
+    this.httpClient.put('https://angular-activite2.firebaseio.com/postList.json', this.postes).subscribe( () => {
+        console.log("enregistrement terminé !");
+    },
+      (erreur) => {
+        console.log("erreur" + erreur);
+      });
+  }
+
+  getPostFromDb(){
+    this.httpClient.get<any[]>('https://angular-activite2.firebaseio.com/postList.json').subscribe( (reponse) => {
+      console.log(reponse);
+      this.postes = reponse;
+      this.emitPost();
+    },
+      (erreur) => {
+        console.log('erreur recup' + erreur);
+      });
+  }
+
+  getPostes(){
+    return this.postes;
   }
 
 }

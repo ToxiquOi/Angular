@@ -9,12 +9,23 @@ import {ListPostService} from '../../services/ListPost.service';
 })
 export class PostViewComponent implements OnInit {
 
-  public postes: any[];
+  public postes = [];
 
   constructor(private listPostService: ListPostService) { }
 
   ngOnInit() {
     this.postes = this.listPostService.postes;
+    this.onGetPost();
+  }
+
+  onSave(){
+    this.listPostService.savePostInDb();
+  }
+
+  onGetPost(){
+    this.listPostService.getPostFromDb();
+    this.postes = this.listPostService.getPostes()
+    console.log(this.postes)
   }
 
 }
