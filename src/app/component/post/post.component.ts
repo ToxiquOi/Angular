@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PostModel} from "../../model/post.model";
-import {PostListService} from "../../services/postList.service";
+import {PostModel} from '../../model/post.model';
+import {PostListService} from '../../services/postList.service';
 
 @Component({
   selector: 'app-post',
@@ -21,11 +21,12 @@ export class PostComponent implements OnInit {
 
   ngOnInit() {
     this.postModel = this.postListService.postsModel[this.id];
+    this.postListService.getPostFromDb();
   }
 
   onLike(aritm: string): void {
-    (aritm == "+")? this.postModel.like++ : this.postModel.like--;
-    this.postModel.date = new Date;
+    (aritm === '+') ? this.postModel.like++ : this.postModel.like--;
+    this.postModel.date = new Date();
     this.postListService.emitPost();
   }
 }

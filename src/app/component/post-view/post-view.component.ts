@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PostModel} from "../../model/post.model";
-import {PostListService} from "../../services/postList.service";
+import {PostModel} from '../../model/post.model';
+import {PostListService} from '../../services/postList.service';
 
 @Component({
   selector: 'app-post-view',
@@ -17,13 +17,13 @@ export class PostViewComponent implements OnInit {
     this.postsModel = this.postListService.postsModel;
   }
 
-  onSave(){
+  onSave() {
     this.postListService.savePostInDb();
   }
 
-  onGetPost(){
+  onGetPost() {
     this.postListService.getPostFromDb();
-    console.log(this.postsModel)
+    console.log(this.postsModel);
   }
 
 }

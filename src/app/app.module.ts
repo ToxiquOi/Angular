@@ -10,6 +10,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import {PostListService} from "./services/postList.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
+import { HomePageComponent } from './component/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
     PostComponent,
     PostViewComponent,
     PostFormComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
