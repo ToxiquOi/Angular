@@ -1,0 +1,21 @@
+<div class="container" style="margin-top: 1%">
+  <div class="row">
+    <div class="col-md-12">
+      <li [ngClass]="{'list-group-item': true,
+                      'list-group-item-success': like > 0,
+                      'list-group-item-danger': like < 0}">
+        <div class="container">
+          <div class="row">
+            <h2 class="col-md-8" style="color: black">{{title}} </h2>
+            <label class="col-md-4" style="color: grey">Dernière update: {{date | date: 'short'}}</label>
+          </div>
+          <p style="color: black">{{content}}</p>
+          <p style="color: black">like : {{like}}</p>
+        </div>
+        <button class="btn btn-success"  (click)="onLike('+'); ">Like</button>
+        <button class="btn btn-danger" (click)="onLike('-')">dont like</button>
+        <!--<label *ngIf="!getStatusAuth()" style="color: grey; margin-left: 10px">veuillez vous connecter pour intéragir !</label>-->
+      </li>
+    </div>
+  </div>
+</div>

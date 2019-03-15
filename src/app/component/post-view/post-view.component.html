@@ -1,0 +1,17 @@
+<div class="container" style="margin-top: 1%">
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="list-group">
+        <app-post *ngFor="let post of postsModel"
+                   [id]="post.id"
+                   [title]="post.title"
+                   [content]="post.content"
+                   [like]="post.like"
+                   [date]="post.date">
+        </app-post>
+      </ul>
+      <button class="btn btn-success" (click)="onGetPost()" style="margin-top: 1%; margin-left: 1.5%">refresh</button>
+      <button class="btn btn-success" (click)="onSave()" style="margin-top: 1%; margin-left: 1.5%">Enregistré</button>
+    </div>
+  </div>
+</div>
