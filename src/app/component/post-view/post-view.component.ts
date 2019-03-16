@@ -15,7 +15,7 @@ export class PostViewComponent implements OnInit, OnDestroy {
 
   constructor(private postListService: PostListService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.postSubscription = this.postListService.postSubject.subscribe(
       (posts: PostModel[]) => {
         this.postsModel = posts;
@@ -28,11 +28,11 @@ export class PostViewComponent implements OnInit, OnDestroy {
     this.postSubscription.unsubscribe();
   }
 
-  onSave() {
+  onSave(): void {
     this.postListService.savePostInDb();
   }
 
-  onGetPost() {
+  onGetPost(): void {
     this.postListService.getPostFromDb();
     console.log(this.postsModel);
   }

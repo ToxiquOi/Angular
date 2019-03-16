@@ -21,7 +21,7 @@ export class PostComponent implements OnInit, OnDestroy {
 
   constructor(private postListService: PostListService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.postSubscription = this.postListService.postSubject.subscribe(
       (users: PostModel[]) => {
         this.postModel = users[this.id];
@@ -35,12 +35,13 @@ export class PostComponent implements OnInit, OnDestroy {
   }
 
   onLike(aritm: string): void {
-    (aritm === '+') ? this.postModel.like++ : this.postModel.like--;
+    (aritm === '+') ? this.like++ : this.like--;
+    this.postModel.like = this.like;
     this.postModel.date = new Date();
     this.postListService.emitPost();
   }
 
-  onDelete(){
+  onDelete(): void {
     this.postListService.deletePost(this.id);
   }
 }
