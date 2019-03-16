@@ -7,17 +7,13 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class PostListService {
 
-  public postsModel: PostModel[] = [
-    // new PostModel(0, "test", "yoollooo", 0, new Date())
-  ];
+  public postsModel: PostModel[] = [];
   public postSubject: Subject<PostModel[]> = new Subject<PostModel[]>();
 
   constructor(private httpClient: HttpClient) {
-    this.getPostFromDb();
   }
 
   addPost(post: PostModel) {
-
     (this.postsModel.length <= 0) ? post.id = 0 : post.id = this.postsModel[(this.postsModel.length - 1)].id + 1;
 
     console.log(post);
@@ -31,7 +27,6 @@ export class PostListService {
 
   savePostInDb() {
     this.httpClient.put('https://angular-activite2.firebaseio.com/blog.json', this.postsModel).subscribe( () => {
-
         console.log('enregistrement terminé !' + this.postsModel);
       },
       (erreur) => {
@@ -48,6 +43,11 @@ export class PostListService {
       (erreur) => {
         console.log('erreur recup' + erreur);
       });
+  }
+
+  deletePost(id: number) {
+    this.postsModel.splice(id, 1);
+    this.emitPost();
   }
 
 }

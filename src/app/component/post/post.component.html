@@ -12,8 +12,11 @@
           <p style="color: black">{{content}}</p>
           <p style="color: black">like : {{like}}</p>
         </div>
-        <button class="btn btn-success"  (click)="onLike('+'); ">Like</button>
-        <button class="btn btn-danger" (click)="onLike('-')">dont like</button>
+        <div class="row">
+          <button class="btn btn-success"  (click)="onLike('+'); ">Like</button>
+          <button class="btn btn-danger" (click)="onLike('-')">dont like</button>
+          <button class="offset-6 btn btn-danger" (click)="onDelete()">Delete</button>
+        </div>
         <!--<label *ngIf="!getStatusAuth()" style="color: grey; margin-left: 10px">veuillez vous connecter pour intéragir !</label>-->
       </li>
     </div>
